@@ -4,10 +4,11 @@ module.exports = function(app) {
 
     // todoList Routes
     app.route('/users')
-        .get(controller.get);
+        .get(controller.get)
+        .post(controller.store);
 
-    /*app.route('/products/:productId')
+    app.route('/users/:id')
         .get(controller.detail)
         .put(controller.update)
-        .delete(controller.delete);*/
+        .delete(controller.delete);
 };

@@ -1,6 +1,6 @@
 let express = require('express');
 let app = express();
-let port = process.env.PORT || 3000;
+let port = process.env.PORT || 3100;
 
 
 let routes = require('../src/api/features/module/users/routes') //importing route
