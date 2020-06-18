@@ -1,13 +1,13 @@
 'use strict';
 module.exports = function(app) {
-    let controller = require('./controller');
+    let controller = require('./MusicController');
 
     // todoList Routes
-    app.route('/users')
+    app.route('/music')
         .get(controller.get)
         .post(controller.store);
 
-    app.route('/users/:id')
+    app.route('/music/:id')
         .get(controller.detail)
         .put(controller.update)
         .delete(controller.delete);

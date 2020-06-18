@@ -1,51 +1,24 @@
-const db = require('../../../../../database/firestore');
-
+import { MusicRepository } from "./repositories/MusicRepository";
+const repository = new MusicRepository();
 module.exports = {
     get: (req, res) => {
-        res.json({message: 'Success!'});
+        let data = repository.find();
+        res.json(data);
     },
 
     detail: (req, res) => {
-        let sql = 'SELECT * FROM users WHERE id = ?'
-        db.query(sql, [req.params.productId], (err, response) => {
-            if (err) throw err
-            res.json(response[0])
-        })
+
     },
 
     store: (req, res) => {
-        let docRef = db.collection('users').doc('alovelace');
-        let data = {
-            first: 'Ada',
-            last: 'Lovelace',
-            born: 1815
-        }
-        docRef.set(data).then(function () {
-            res.json(data);
-        }).catch(reason => {
-            res.json(reason);
-        });
+
     },
 
     update: (req, res) => {
-        let docRef = db.collection('users').doc('alovelace');
-        let data = {
-            first: 'Ada',
-            last: 'Lovelace',
-            born: 1900
-        }
-        docRef.update(data).then(function (writeTime) {
-            res.json(data);
-        }).catch(reason => {
-            res.json(reason);
-        });
+
     },
     delete: (req, res) => {
-        let sql = 'DELETE FROM users WHERE id = ?'
-        db.query(sql, [req.params.productId], (err, response) => {
-            if (err) throw err
-            res.json({message: 'Delete success!'})
-        })
+
     }
 }
 

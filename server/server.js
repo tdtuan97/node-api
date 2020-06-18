@@ -3,7 +3,7 @@ let app = express();
 let port = process.env.PORT || 3100;
 
 
-let routes = require('../src/api/features/module/users/routes') //importing route
+let routes = require('../src/api/features/module/music/routes') //importing route
 
 routes(app)
 
