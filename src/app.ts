@@ -1,6 +1,6 @@
 import * as express from "express";
 import * as bodyParser from "body-parser";
-import routes from "./api/features/module/music/routes";
+import router_v1 from "./api/routes/router_v1";
 
 class App {
 
@@ -17,8 +17,8 @@ class App {
         this.app.use(bodyParser.urlencoded({extended: false}));
     }
 
-    private mappingRoute(): void{
-        routes(this.app);
+    private mappingRoute(): void {
+        this.app.use('/api/v1', router_v1)
     }
 }
 

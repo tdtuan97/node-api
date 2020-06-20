@@ -6,8 +6,16 @@ import {IRead} from './interfaces/IRead';
 export abstract class BaseRepository<T> implements IWrite<T>, IRead<T> {
     public readonly _model;
 
-    constructor(_model) {
+    protected constructor(_model) {
         this._model = _model;
+    }
+
+    find(item: T): Promise<T[]> {
+        return this._model.find();
+    }
+
+    findOne(id: string): Promise<T> {
+        throw new Error("Method not implemented.");
     }
 
     create(item: T): Promise<boolean> {
@@ -19,14 +27,6 @@ export abstract class BaseRepository<T> implements IWrite<T>, IRead<T> {
     }
 
     delete(id: string): Promise<boolean> {
-        throw new Error("Method not implemented.");
-    }
-
-    find(item: T): Promise<T[]> {
-        return this._model.find();
-    }
-
-    findOne(id: string): Promise<T> {
         throw new Error("Method not implemented.");
     }
 }
