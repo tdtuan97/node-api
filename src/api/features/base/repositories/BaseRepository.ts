@@ -19,7 +19,7 @@ export abstract class BaseRepository<T> implements IWrite<T>, IRead<T> {
     }
 
     create(item: T): Promise<boolean> {
-        return this._model.create();
+        return this._model.create(item);
     }
 
     update(id: string, item: T): Promise<boolean> {

@@ -14,7 +14,6 @@ export default abstract class BaseController {
             dataRes = this.response(data, message)
         } catch (e) {
             dataRes = this.responseError(e, 'Error')
-            res.json(dataRes);
         }
 
         res.json(dataRes);
@@ -29,7 +28,6 @@ export default abstract class BaseController {
             dataRes = this.response(data, message)
         } catch (e) {
             dataRes = this.responseError(e, 'Error')
-            res.json(dataRes);
         }
         res.json(dataRes);
     }
@@ -38,13 +36,12 @@ export default abstract class BaseController {
         let data = req.body;
         let dataRes;
         try {
-            let id = await this.repository.update(data);
+            let id = await this.repository.create(data);
             dataRes = this.response({
                 id: id
             }, 'Success')
         } catch (e) {
             dataRes = this.responseError(e, 'Error')
-            res.json(dataRes);
         }
         res.json(dataRes);
     }
@@ -59,7 +56,6 @@ export default abstract class BaseController {
             dataRes = this.response({}, message)
         } catch (e) {
             dataRes = this.responseError(e, 'Error')
-            res.json(dataRes);
         }
         res.json(dataRes);
     }
