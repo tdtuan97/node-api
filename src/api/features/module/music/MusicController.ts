@@ -1,9 +1,11 @@
 import { MusicRepository } from "./repositories/MusicRepository";
-const repository = new MusicRepository();
+import { Music } from "./entities/Music";
+const repository = new MusicRepository(Music);
+
 module.exports = {
     get: (req, res) => {
-        let data = repository.find();
-        res.json(data);
+        //let data = repository.find();
+        res.json();
     },
 
     detail: (req, res) => {
@@ -21,6 +23,7 @@ module.exports = {
 
     }
 }
+
 
 /*
 module.exports = {

@@ -1,5 +1,6 @@
-'use strict';
-export default function(app: any) {
+import * as express from "express";
+
+export default function (app: express.Application) {
     let controller = require('./MusicController');
 
     // todoList Routes

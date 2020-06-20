@@ -1,5 +1,6 @@
 import * as express from "express";
 import * as bodyParser from "body-parser";
+import routes from "./api/features/module/music/routes";
 
 class App {
 
@@ -8,13 +9,17 @@ class App {
     constructor() {
         this.app = express();
         this.config();
+        this.mappingRoute();
     }
 
     private config(): void {
-// Giúp chúng ta tiếp nhận dữ liệu từ body của request
+        //Receive data from body request
         this.app.use(bodyParser.urlencoded({extended: false}));
     }
 
+    private mappingRoute(): void{
+        routes(this.app);
+    }
 }
 
 export default new App().app;
