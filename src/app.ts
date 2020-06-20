@@ -14,7 +14,8 @@ class App {
 
     private config(): void {
         //Receive data from body request
-        this.app.use(bodyParser.urlencoded({extended: false}));
+        this.app.use(bodyParser.urlencoded({extended: true}));
+        this.app.use(bodyParser.json())
     }
 
     private mappingRoute(): void {

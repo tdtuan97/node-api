@@ -15,18 +15,18 @@ export abstract class BaseRepository<T> implements IWrite<T>, IRead<T> {
     }
 
     findOne(id: string): Promise<T> {
-        throw new Error("Method not implemented.");
+        return this._model.findOne(id);
     }
 
     create(item: T): Promise<boolean> {
-        throw new Error("Method not implemented.");
+        return this._model.create();
     }
 
     update(id: string, item: T): Promise<boolean> {
-        throw new Error("Method not implemented.");
+        return this._model.update(id, item);
     }
 
     delete(id: string): Promise<boolean> {
-        throw new Error("Method not implemented.");
+        return this._model.delete(id);
     }
 }

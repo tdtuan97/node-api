@@ -6,7 +6,7 @@ admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
 });
 
-const db = admin.firestore();
+const db = admin.firestore().collection('databases').doc('db_music');
 
 export default db;
 
