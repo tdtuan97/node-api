@@ -2,6 +2,8 @@ import * as express from "express";
 import * as bodyParser from "body-parser";
 import router_v1 from "./api/routes/router_v1";
 
+const cors = require('cors')
+
 class App {
 
     public app: express.Application;
@@ -16,6 +18,7 @@ class App {
         //Receive data from body request
         this.app.use(bodyParser.urlencoded({extended: true}));
         this.app.use(bodyParser.json())
+        this.app.use(cors())
     }
 
     private mappingRoute(): void {
